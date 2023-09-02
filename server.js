@@ -1,4 +1,3 @@
-
 // Setup empty JS object to act as endpoint for all routes
 projectData = {};
 
@@ -143,7 +142,7 @@ const homeData = {laptops: [
     "img": "https://images-eu.ssl-images-amazon.com/images/I/31OZQ6HPTYL._AC_SX184_.jpg",
     "name": "HP Victus 15-fa0031ne - 12th i7-12700H 14-Cores, 8GB RAM, 512GB SSD,NVIDIA RTX3050 4GB GDDR6 Graphics",
     "info": "HP Victus 15-fa0031ne - 12th i7-12700H 14-Cores, 8GB RAM, 512GB SSD,NVIDIA RTX3050 4GB GDDR6 Graphics, 15.6' FHD (1920x1080) IPS 144Hz, Dos - Mica Silver",
-    "price": 25000
+    "price": 24000
   },
   {
     "id": 3,
@@ -157,14 +156,14 @@ const homeData = {laptops: [
     "img": "https://images-eu.ssl-images-amazon.com/images/I/41qFFF6N2hL._AC_SX184_.jpg",
     "name": "Dell Inspiron 5410 2-in-1 Convertible x360 laptop - 11th Intel Core i5-1135G7, 8GB RAM, 256GB SSD, Intel Iris Xe Graphics",
     "info": "Dell Inspiron 5410 2-in-1 Convertible x360 laptop - 11th Intel Core i5-1135G7, 8GB RAM, 256GB SSD, Intel Iris Xe Graphics, 14' FHD Touch, FingerPrint, Backlit keyboard, Windows 10 - Silver",
-    "price": 25500
+    "price": 21800
   },
   {
     "id": 5,
     "img": "https://images-eu.ssl-images-amazon.com/images/I/41Xp-kmG6PL._AC_SX184_.jpg",
     "name": "IdeaPad 3 15itl6 Laptop - Ci7-1165g7 8gb Ram 1tb 15.6 Fhd - Mx450 2gb - Dos - Arctic Grey",
     "info": "IdeaPad 3 15itl6 Laptop - Ci7-1165g7 8gb Ram 1tb 15.6 Fhd - Mx450 2gb - Dos - Arctic Grey",
-    "price": 21999
+    "price": 25300
   },
   {
     "id": 6,
@@ -192,7 +191,7 @@ const homeData = {laptops: [
     "img": "https://m.media-amazon.com/images/I/61Tow+3TrGL._AC_UL320_.jpg",
     "name": "Lenovo V15 Laptop - 4GB RAM, 1TB HDD, AMD Radeon Graphics, 15.6 Inch HD 220nits Anti-glare",
     "info": "Lenovo V15 Laptop - 4GB RAM, 1TB HDD, AMD Radeon Graphics, 15.6 Inch HD 220nits Anti-glare, Dos - Iron Grey",
-    "price": 18744
+    "price": 42744
   },
   {
     "id": 10,
@@ -219,7 +218,7 @@ const homeData = {laptops: [
     "img": "https://images-eu.ssl-images-amazon.com/images/I/31j2B+CKMUL._AC_SX184_.jpg",
     "name": "Lenovo Legion 5 15ACH6 Gaming Laptop - Ryzen 5 5600H 6-Cores, 16 GB RAM, 512 GB SSD,NVIDIA GeForce RTX 3050 Ti 4GB GDDR6 Graphics",
     "info": "Lenovo Legion 5 15ACH6 Gaming Laptop - Ryzen 5 5600H 6-Cores, 16 GB RAM, 512 GB SSD,NVIDIA GeForce RTX 3050 Ti 4GB GDDR6 Graphics, 15.6' FHD (1920x1080) IPS 120Hz, Backlit Keyboard, Windows 11",
-    "price": 32999
+    "price": 36500
   },
   {
     "id": 14,
@@ -240,34 +239,34 @@ const homeData = {laptops: [
     "img": "https://m.media-amazon.com/images/I/81kw-4atlRL._AC_UL320_.jpg",
     "name": "Dell G15-5520 Gaming Laptop - 12th Intel Core i7-12700H 14-Cores, 16GB RAM DDR5 4800 MHz, 512GB SSD",
     "info": "Dell G15-5520 Gaming Laptop - 12th Intel Core i7-12700H 14-Cores, 16GB RAM DDR5 4800 MHz, 512GB SSD,NVIDIA Geforce RTX3060 6GB GDDR6 Graphics, 15.6' FHD 120 Hz, Backlit Keyboard, UBUNTU, Shadow Grey",
-    "price": 42260
+    "price": 52260
   },
   {
     "id": 17,
     "img": "https://m.media-amazon.com/images/I/611fpHIoRZL._AC_UL320_.jpg",
     "name": "MSI GF65 Thin 9SE Core i7-9750H with NVIDia RTX 2060 - 6 GB Ram 16GB SSD 512GB 15.6' FHD IPS",
     "info": "MSI GF65 Thin 9SE Core i7-9750H with NVIDia RTX 2060 - 6 GB Ram 16GB SSD 512GB 15.6' FHD IPS , Windows 10 Home",
-    "price": 40999
+    "price": 60500
   },
   {
     "id": 18,
     "img": "https://m.media-amazon.com/images/I/5181KF5br-L._AC_UL320_.jpg",
     "name": "Lenovo IdeaPad Gaming 3 Laptop - Ryzen 5 5600H 6 Cores, 16GB RAM, 1TB SSD, NVIDIA GeForce RTX 3050 Ti 4GB GDDR6 Graphics",
     "info": "Lenovo IDeaPad Gaming 3 Laptop - Ryzen 5 5600H 6 Cores, 16GB RAM, 1TB SSD, NVIDIA GeForce RTX 3050 Ti 4GB GDDR6 Graphics, 15.6' FHD (1920x1080) IPS 120Hz, Backlit KB, Windows11",
-    "price": 33500
+    "price": 26500
   },
   {
     "id": 19,
     "img": "https://m.media-amazon.com/images/I/61Tow+3TrGL._AC_UL320_.jpg",
     "name": "Lenovo V15 Laptop - 4GB RAM, 1TB HDD, AMD Radeon Graphics, 15.6 Inch HD 220nits Anti-glare",
     "info": "Lenovo V15 Laptop - 4GB RAM, 1TB HDD, AMD Radeon Graphics, 15.6 Inch HD 220nits Anti-glare, Dos - Iron Grey",
-    "price": 8700
+    "price": 18700
   },
   {
     "id": 20,
     "img": "https://m.media-amazon.com/images/I/61csVaj6QqL._AC_UL320_.jpg",
     "name": "FX507ZC-HN003W Core i7-12700H, 8GB - 512GB SSD, 15.6in FHD 144Hz RTX 3050,4GB",
     "info": "FX507ZC-HN003W Core i7-12700H, 8GB - 512GB SSD, 15.6in FHD 144Hz RTX 3050,4GB - Window 11 Gaming Laptop - Mecha Grey",
-    "price": 41499
+    "price": 49499
   }
 ]};

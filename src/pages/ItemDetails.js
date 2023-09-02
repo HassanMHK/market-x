@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import useFetch from "../useFetch";
 import useGetFetch from "../useGetFetch";
 import Item from "../Item";
@@ -8,7 +9,7 @@ const Product = (product) => {
   const editedPrice = product.price.toLocaleString("en-US");
   return (
     <div className="details-item-container">
-      <img className="item-img-details" src={product.img} />
+      <img className="item-img-details" src={product.img} alt="laptop"/>
       <div className="right-details">
         <h3 className="item-name-details">{product.name}</h3>
         <p className="item-info-details">{product.info}</p>
@@ -23,25 +24,55 @@ const Product = (product) => {
 
 const ItemDetails = () => {
   const { id } = useParams();
+  const [loaded, setLoaded] = useState(true);
+  const [random, setRandom] = useState([]);
   const { data, isPending, error } = useFetch(`/products/${id}`);
   const { dataG, isPendingG } = useGetFetch("http://localhost:8000/");
+
+  const changeItem = () => {
+    setLoaded(false);
+  }
+
+  useEffect(() => {
+    setLoaded(true);
+    if(dataG){
+      // 4 random numbers within products length saved in an array
+      // product details id not included in the random numbers
+      const random = [];
+      for(let i=0; i<4; i++){
+        let randomNumber = Math.floor((Math.random() * dataG.length))+1;
+        while((randomNumber === Number(id)) || (random.includes(randomNumber))){
+          randomNumber = Math.floor((Math.random() * dataG.length))+1;
+        }
+        random[i] = randomNumber;
+      }
+      setRandom(random);
+    }
+  },[data]);
+
+
   return (
     <>
       <div className="msg-title-container">
-        {isPending && <div>Loading...</div>}
-        {error && <div>{error}</div>}
+        {( isPending || !loaded) && <h2>Loading...</h2>}
+        {error && <h2>{error}</h2>}
       </div>
       {/* <Product img={product.img} name={product.name} price={product.price} key={product.id} /> */}
       {/* spread operator */}
-      {data && <Product {...data} key={data.id} />}
-      {isPendingG && <h2 className="similar-title">Loading...</h2>}
-      {data && !isPendingG && <h2 className="similar-title">Similar items</h2>}
-      {data && dataG &&
+      {data && loaded && <Product {...data} key={data.id} />}
+      {/* {!isPendingG && !loaded && <h2 className="similar-title">Loading...</h2>} */}
+      {data && !isPendingG && loaded && <h2 className="similar-title">Similar items</h2>}
+      {data && dataG && loaded &&
         <>
           <div className="seeMore-list-container">
-            {dataG.map((product) => {
-                if (product.id <= 3) {
-                  return <Item {...product} key={product.id} />;
+            {(random !== []) && dataG.map((product) => {
+                if(product.id !== Number(id)){
+                  // loop to add 4 items matching the random numbers in random useState
+                  for(let i=0; i<4; i++){
+                    if(product.id === random[i]){
+                      return <Item {...product} key={product.id} changeItem={changeItem}/>;
+                    }
+                  }
                 }
               })}
           </div>
@@ -49,6 +80,7 @@ const ItemDetails = () => {
       }
     </>
   );
+
 };
 
 export default ItemDetails;
