@@ -28,10 +28,10 @@ const Home = () => {
                 </div>
                 <div className='home-main'>
                     <Sidebar checkSidebar={isSidebarActive} showSidebar={setSidebarActive}/>
-                    <div className='right-section'>
+                    <div className='main-section'>
                         {isPendingJ && <h2>Loading...</h2>}
                         {errorJ && <h2> { errorJ } </h2>}
-                        {dataJ && <h2>Laptops</h2>}
+                        {dataJ && <h2 className='product-type'>Laptops</h2>}
                         <div className='list-container'>
                             {dataJ && dataJ.map((product) => {
                                 return (
