@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useFetch from "../useFetch";
-import useGetFetch from "../useGetFetch";
 import Item from "../Item";
+import Navbar from "../Navbar";
 import "../home.css";
 
 const similarItemsNumber = 10;
@@ -28,23 +28,22 @@ const ItemDetails = () => {
   const { id } = useParams();
   const [loaded, setLoaded] = useState(true);
   const [random, setRandom] = useState([]);
-  const { data, isPending, error } = useFetch(`/products/${id}`);
-  const { dataG, isPendingG, errorG } = useGetFetch("http://localhost:8000/");
+  const { data, isPending, error } = useFetch("/data.json");
 
   const changeItem = () => {
-    setLoaded(false);
+    // setLoaded(false);
   }
 
   useEffect(() => {
     setLoaded(true);
-    if(dataG){
+    if(data){
       // 10 random numbers within products length saved in an array
       // product details id not included in the random numbers
       const random = [];
       for(let i=0; i<similarItemsNumber; i++){
-        let randomNumber = Math.floor((Math.random() * dataG.length))+1;
+        let randomNumber = Math.floor((Math.random() * data.length))+1;
         while((randomNumber === Number(id)) || (random.includes(randomNumber))){
-          randomNumber = Math.floor((Math.random() * dataG.length))+1;
+          randomNumber = Math.floor((Math.random() * data.length))+1;
         }
         random[i] = randomNumber;
       }
@@ -54,34 +53,34 @@ const ItemDetails = () => {
 
 
   return (
-    <>
+    <div className='market-container'>
+      <Navbar />
       <div className="msg-title-container">
         {( isPending || !loaded) && <h2>Loading...</h2>}
         {error && <h2>{error}</h2>}
       </div>
       {/* <Product img={product.img} name={product.name} price={product.price} key={product.id} /> */}
       {/* spread operator */}
-      {data && loaded && <Product {...data} key={data.id} />}
-      {/* {!isPendingG && !loaded && <h2 className="similar-title">Loading...</h2>} */}
-      {data && dataG && !isPendingG && loaded && <h2 className="similar-title">Similar items</h2>}
-      {/* {errorG && <h2 className="similar-title">{errorG}</h2>} */}
-      {data && dataG && loaded &&
-        <>
-          <div className="seeMore-list-container">
-            {(random !== []) && dataG.map((product) => {
-                if(product.id !== Number(id)){
-                  // loop to add similaritems matching the random numbers in random useState
-                  for(let i=0; i<similarItemsNumber; i++){
-                    if(product.id === random[i]){
-                      return <Item {...product} key={product.id} changeItem={changeItem}/>;
-                    }
+      {data && loaded && data.map((product) => {
+        if(product.id === Number(id)){
+          return <Product {...product} key={product.id} />;
+        }
+      })}
+      {data && data && !isPending && loaded && <h2 className="similar-title">Similar items</h2>}
+      {data && data && loaded &&
+        <div className="seeMore-list-container">
+          {(random !== []) && data.map((product) => {
+              if(product.id !== Number(id)){
+                // loop to add similaritems matching the random numbers in random useState
+                for(let i=0; i<similarItemsNumber; i++){
+                  if(product.id === random[i]){
+                    return <Item {...product} key={product.id} changeItem={changeItem}/>;
                   }
                 }
-              })}
-          </div>
-        </>
-      }
-    </>
+              }
+            })}
+        </div>}
+    </div>
   );
 
 };

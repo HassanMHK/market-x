@@ -1,22 +1,19 @@
 import { useState } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Navbar from "../Navbar";
 
 const NoPage = () => {
   const [timer, setTimer] = useState(3);
-  const redirect = useHistory();
+  const navigate = useNavigate();
 
   const redirectTime = setTimeout(() => {
     if(timer > 1){
       setTimer(timer-1);
     }else{
       clearTimeout(redirectTime);
-      redirect.push('/');
+      navigate('/');
     }
   }, 1000);
-  // setTimeout(() => {
-  //   redirect.push('/');
-  // }, 3000);
 
     return (
       <>

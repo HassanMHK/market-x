@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-const Nav = (props) => {
+const Nav = () => {
     return (
         <>
             <nav className="nav-container">
@@ -16,7 +16,7 @@ const Nav = (props) => {
     );
 };
 
-const Navbar = (props) => {
+const Navbar = () => {
     return (
         <>
             <Nav />

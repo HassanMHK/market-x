@@ -1,19 +1,17 @@
-// import useFetch from '../useFetch';
-// import useGetFetch from '../useGetFetch';
-import useJsonFetch from '../useJsonFetch';
+import useFetch from '../useFetch';
 import Sidebar from "../Sidebar";
 import Item from "../Item";
+import Navbar from "../Navbar";
 import '../home.css';
 import { useState } from 'react';
 
 const Home = () => {
-    // const {dataG, isPendingG, errorG} = useGetFetch("http://localhost:8000/");
-    const {dataJ, isPendingJ, errorJ} = useJsonFetch("\data.json");
-    // const {data, isPending, error} = useFetch('/');
+    const {data, isPending, error} = useFetch("/data.json");
     const [isSidebarActive, setSidebarActive] = useState(true);
 
     return(
-        <>
+        <div className='market-container'>
+            <Navbar />
             <div className='home-container'>
                 <div className='filter-bar'>
                     <button className='sidebar-btn' onClick={() => {
@@ -29,11 +27,11 @@ const Home = () => {
                 <div className='home-main'>
                     <Sidebar checkSidebar={isSidebarActive} showSidebar={setSidebarActive}/>
                     <div className='main-section'>
-                        {isPendingJ && <h2>Loading...</h2>}
-                        {errorJ && <h2> { errorJ } </h2>}
-                        {dataJ && <h2 className='product-type'>Laptops</h2>}
+                        {isPending && <h2>Loading...</h2>}
+                        {error && <h2> { error } </h2>}
+                        {data && <h2 className='product-type'>Laptops</h2>}
                         <div className='list-container'>
-                            {dataJ && dataJ.map((product) => {
+                            {data && data.map((product) => {
                                 return (
                                     <Item {...product} key={product.id} />
                                 );
@@ -42,7 +40,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
