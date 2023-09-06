@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-const Nav = () => {
+
+const Navbar = () => {
     return (
         <>
             <nav className="nav-container">
@@ -7,19 +8,10 @@ const Nav = () => {
                     <Link className="market-title" to="/">MarketX</Link>
                 </div>
                 <div className="nav-btns-container">
-                    {/* <button className="nav-btn"><Link className="nav-link" to="/login">Login</Link></button> */}
                     <Link className="nav-link" to="/login"><button className="nav-btn">Log in</button></Link>
                     <Link className="nav-link" to="/register"><button className="nav-btn">Register</button></Link>
                 </div>
             </nav>
-        </>
-    );
-};
-
-const Navbar = () => {
-    return (
-        <>
-            <Nav />
         </>
     );
 };
