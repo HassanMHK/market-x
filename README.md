@@ -10,19 +10,19 @@ https://marketx.netlify.app/
 Added Nodejs server (server.js)\
 Added "proxy": "http://localhost:8000" to package.json\
 The server contains JSON data, GET and POST routes.\
-Added data.json to public folder.\
+Added data.json to public folder.
 
 Fetching the data on the Home page with GET request from the JSON file.\
 Fetching the Product details data on the ItemDetails page with POST request with the product id from the server.\
-Fetching the similar products data on the ItemDetails page with GET request from the server.\
+Fetching the similar products data on the ItemDetails page with GET request from the server.
 
 ## React Router
 using "react-router-dom": "^5.3.4"\
-Routes: [/, /register, /login, /products/:id, *]\
+Routes: [/, /register, /login, /products/:id, *]
 
 ## JS Functions
 Added marketFunctions.js.\
-The file includes Functions to validate the register and login inputs [ValidateEmail, CheckPassword, CheckEmpty, checkDate, checkGender]\
+The file includes Functions to validate the register and login inputs [ValidateEmail, CheckPassword, CheckEmpty, checkDate, checkGender]
 
 ## Available Scripts
 
