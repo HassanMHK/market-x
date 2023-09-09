@@ -7,6 +7,7 @@ import ItemDetails from './pages/ItemDetails';
 import NoPage from './pages/NoPage';
 // import UserNavbar from "./UserNavbar";
 import Footer from './footer';
+import Search from './pages/Search';
 
 function App() {
   
@@ -18,6 +19,7 @@ function App() {
               <Route path='/login' element={<Login />}/>
               <Route path='/' element={<Home />}/>
               <Route path='/products/:id' element={<ItemDetails />}/>
+              <Route path='/search' element={<Search />}/>
               <Route path='*' element={<NoPage />}/>
             </Routes>
           </Router>

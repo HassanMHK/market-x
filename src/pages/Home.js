@@ -34,9 +34,21 @@ const Home = () => {
         }
     }
 
+    const getSearchInput = (searchInput) => {
+        const filterSearch = (product) => 
+            [product.name, product.info]
+                .join(' ')
+                .toLowerCase()
+                .indexOf(searchInput.toLowerCase()) !== -1
+        ;
+        let filteredData = data.filter(filterSearch);
+        setFilter(true);
+        setProductsData(filteredData);
+    }
+
     return(
         <div className='market-container'>
-            <Navbar />
+            <Navbar getData={getSearchInput} />
             <div className='home-container'>
                 <div className='filter-bar'>
                     <button className='sidebar-btn' onClick={() => {

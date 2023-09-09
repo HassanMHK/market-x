@@ -27,12 +27,18 @@ const Product = (product) => {
 const ItemDetails = () => {
   const { id } = useParams();
   const [loaded, setLoaded] = useState(true);
-  const [random, setRandom] = useState([]);
+  const [random, setRandom] = useState(null);
   const { data, isPending, error } = useFetch("/data.json");
+  const [products, setproducts] = useState(null);
 
   const changeItem = () => {
     // setLoaded(false);
+    setproducts(data);
   }
+
+  useEffect(() => {
+    setproducts(data);
+  },[data]);
 
   useEffect(() => {
     setLoaded(true);
@@ -49,7 +55,7 @@ const ItemDetails = () => {
       }
       setRandom(random);
     }
-  },[data]);
+  },[products]);
 
 
   return (
@@ -69,9 +75,10 @@ const ItemDetails = () => {
       {data && data && !isPending && loaded && <h2 className="similar-title">Similar items</h2>}
       {data && data && loaded &&
         <div className="seeMore-list-container">
-          {(random !== []) && data.map((product) => {
+          {(random) && data.map((product) => {
               if(product.id !== Number(id)){
                 // loop to add similaritems matching the random numbers in random useState
+                console.log(random);
                 for(let i=0; i<similarItemsNumber; i++){
                   if(product.id === random[i]){
                     return <Item {...product} key={product.id} changeItem={changeItem}/>;
