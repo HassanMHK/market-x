@@ -1,7 +1,7 @@
 import useFetch from '../useFetch';
 import Sidebar from "../Sidebar";
 import Item from "../Item";
-import Navbar from "../Navbar";
+import NavbarHome from "../NavbarHome";
 import '../home.css';
 import { useEffect, useState } from 'react';
 
@@ -48,7 +48,7 @@ const Home = () => {
 
     return(
         <div className='market-container'>
-            <Navbar getData={getSearchInput} />
+            <NavbarHome getData={getSearchInput} />
             <div className='home-container'>
                 <div className='filter-bar'>
                     <button className='sidebar-btn' onClick={() => {

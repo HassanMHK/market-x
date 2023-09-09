@@ -17,6 +17,102 @@
     padding-bottom: 50px;
     background-color: rgb(255, 255, 255);
 }
+/* Navbar */
+.nav-container {
+    position: absolute;
+    top: 0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background: rgb(240, 240, 240);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  .nav-content {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo-container {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+  }
+  .market-title {
+    text-decoration: none;
+    color: #282c34;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    /* transition: all 0.3s linear; */
+  }
+  .nav-btns-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    position: absolute;
+    right: 0;
+  }
+  .nav-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(240, 240, 240);
+    text-decoration: none;
+  }
+  .nav-btn {
+    margin: 0;
+    padding: 0;
+    width: 60px;
+    height: 30px;
+    margin-left: 5px;
+    font-size: 12px;
+  }
+/* search */
+.search-container {
+    width: 400px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-content {
+    width: 400px;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#search {
+    width: 400px;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+    height: 35px;
+    padding-left: 10px;
+    border: 1px solid rgb(97, 125, 152);
+}
+#serach-btn{
+    margin: 0;
+    padding: 0;
+    width: 70px;
+    height: 35px;
+    font-size: 15px;
+    position: absolute;
+    right: 0;
+    border-radius: 0 10px 10px 0;
+}
+  
 .filter-bar {
     position: relative;
     height: 40px;
