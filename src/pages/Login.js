@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import Navbar from "../Navbar";
 import '../App.css';
 import { ValidateEmail, CheckEmpty } from "../marketFunctions";
 
@@ -10,7 +11,7 @@ const Login = () => {
     const [isEmailWrong, setIsEmailWrong] = useState(false);
     const [isPassEmpty, setIsPassEmpty] = useState(false);
     const [data, setData] = useState(null);
-    const redirect = useHistory();
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -41,14 +42,9 @@ const Login = () => {
                 body: JSON.stringify(loginData)
             }).then((res) => res.json())
             .then((data) => {setData(data.message);
-                // console.log(data.condition);
                 setIsPending(false);
                 if(data.condition === "ok"){
-                    // redirect.go(-1); // (-1) go back in history
-                    redirect.push('/');
-                    // setTimeout(() => {
-                    //     window.location = "/";
-                    // }, 2000);
+                    navigate('/');
             }})
             .then(()=>{
                 
@@ -57,13 +53,13 @@ const Login = () => {
     }
 
     return(
-        <>
+        <div className='log-reg-container'>
+            <Navbar />
             <div className='login-outer-container'>
             <div className='res-msg-container'>
                 <h3 className='res-msg'>{!data ? "" : data}</h3>
             </div>
             <div className="login-container">
-                {/* <h3 className='res-msg'>{!data ? "" : data}</h3> */}
                 <h2>Log in</h2>
                 <form>
                     <label>Email:
@@ -89,17 +85,13 @@ const Login = () => {
                         {isPassEmpty && (<p className='wrong-msg'>Enter your password</p>)}
                     </label>
                     <button onClick={handleSubmit}>Log in</button>
-                    {/* { !isPending && <button onClick={handleSubmit}>Log in</button>}
-                    { isPending && <button disabled>Loading...</button>} */}
                     <div className='register-link-container'>
                         <Link className="register-nav-link" to="/register"><button className='register-button'>Create new account</button></Link>
-                        {/* <p><a className="nav-links" href="/register">Create new account?</a></p> */}
                     </div>
-                    {/* <input type="submit" /> */}
                 </form>
             </div>
             </div>
-        </>
+        </div>
     );
 };
 

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import Navbar from "../Navbar";
 import '../App.css';
 import { ValidateEmail, CheckPassword, checkDate, checkGender } from "../marketFunctions";
 
@@ -12,7 +13,7 @@ const Register = () => {
     const [isDateWrong, setIsDateWrong] = useState(false);
     const [isGenderWrong, setIsGenderWrong] = useState(false);
     const [data, setData] = useState(null);
-    const redirect = useHistory();
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -64,18 +65,15 @@ const Register = () => {
             .then((data) => {
                 setData(data.message);
                 setIsPending(false);
-                // redirect.go(-1); // (-1) go back in history
                 setTimeout(() => {
-                    redirect.push('/login');
+                    navigate('/login');
                 }, 2000);
-                // setTimeout(() => {
-                //     window.location = "/login";
-                // }, 2000);
             })
         }
     }
     return(
-        <>
+        <div className='log-reg-container'>
+            <Navbar />
             <div className='reg-outer-container'>
             <div className='res-msg-container'>
                 <h3 className='res-msg'>{!data ? "" : data}</h3>
@@ -117,18 +115,15 @@ const Register = () => {
                         <label className='radio-text' htmlFor="female">Female</label>
                     </div>
                     {isGenderWrong && <p className='wrong-msg'>You must choose a gender</p>}
-                    {/* <button onClick={handleSubmit}>Sign Up</button> */}
-                    {/* <button type='submit'>Sign Up</button> */}
                     { !isPending && <button type='submit'>Sign Up</button>}
                     { isPending && <button disabled>Loading...</button>}
                     <div className='login-link-container'>
                         <p><Link className="login-nav-links" to="/login">Already have an account?</Link></p>
                     </div>
-                    {/* <input type="submit" /> */}
                 </form>
             </div>
             </div>
-        </>
+        </div>
     );
 };
 
