@@ -20,6 +20,7 @@ const Home = () => {
         }
     }, [data]);
 
+    // Filter by price
     const priceFilter = (e) => {
         if(e.target.value === "low-filter"){
             const lowPrice = data.sort((a, b) => a.price - b.price);
@@ -34,6 +35,7 @@ const Home = () => {
         }
     }
 
+    // Get Search input and filter the data
     const getSearchInput = (searchInput) => {
         const filterSearch = (product) => 
             [product.name, product.info]
@@ -46,12 +48,25 @@ const Home = () => {
         setProductsData(filteredData);
     }
 
+    // Get Brand filter
+    const getBrand = (brand) => {
+        const filterSearch = (product) => 
+            [product.name, product.info]
+                .join(' ')
+                .toLowerCase()
+                .indexOf(brand.toLowerCase()) !== -1
+        ;
+        let filteredData = data.filter(filterSearch);
+        setFilter(true);
+        setProductsData(filteredData);
+    }
+
     return(
         <div className='market-container'>
             <NavbarHome getData={getSearchInput} />
             <div className='home-container'>
                 <div className='filter-bar'>
-                    <button className='sidebar-btn' onClick={() => {
+                    <button className='sidebar-menuBtn' onClick={() => {
                         if(isSidebarActive){
                             setSidebarActive(false);
                         }else{
@@ -66,7 +81,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className='home-main'>
-                    <Sidebar checkSidebar={isSidebarActive} showSidebar={setSidebarActive}/>
+                    <Sidebar checkSidebar={isSidebarActive} showSidebar={setSidebarActive} getData={getBrand} />
                     <div className='main-section'>
                         {isPending && <h2>Loading...</h2>}
                         {error && <h2> { error } </h2>}
