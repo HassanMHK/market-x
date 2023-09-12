@@ -1,9 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import useFetch from "../useFetch";
-import Item from "../Item";
-import Navbar from "../Navbar";
-import "../home.css";
+import useFetch from "../functions/useFetch";
+import Item from "../components/Item";
+import NavbarClean from "../components/cleanNavbar";
 
 const similarItemsNumber = 10;
 
@@ -60,7 +59,7 @@ const ItemDetails = () => {
 
   return (
     <div className='market-container'>
-      <Navbar />
+      <NavbarClean />
       <div className="msg-title-container">
         {( isPending || !loaded) && <h2>Loading...</h2>}
         {error && <h2>{error}</h2>}
@@ -74,7 +73,8 @@ const ItemDetails = () => {
       })}
       {data && data && !isPending && loaded && <h2 className="similar-title">Similar items</h2>}
       {data && data && loaded &&
-        <div className="seeMore-list-container">
+      <div className="similar-products-container">
+        <div className="products">
           {(random) && data.map((product) => {
               if(product.id !== Number(id)){
                 // loop to add similaritems matching the random numbers in random useState
@@ -86,7 +86,8 @@ const ItemDetails = () => {
                 }
               }
             })}
-        </div>}
+        </div>
+      </div>}
     </div>
   );
 

@@ -1,8 +1,7 @@
-import useFetch from '../useFetch';
-import Sidebar from "../Sidebar";
-import Item from "../Item";
-import NavbarHome from "../NavbarHome";
-import '../home.css';
+import useFetch from '../functions/useFetch';
+import Sidebar from "../components/Sidebar";
+import Item from "../components/Item";
+import Navbar from "../components/fullNavbar";
 import { useEffect, useState } from 'react';
 
 const Home = () => {
@@ -63,7 +62,7 @@ const Home = () => {
 
     return(
         <div className='market-container'>
-            <NavbarHome getData={getSearchInput} />
+            <Navbar getData={getSearchInput} />
             <div className='home-container'>
                 <div className='filter-bar'>
                     <button className='sidebar-menuBtn' onClick={() => {
@@ -87,16 +86,18 @@ const Home = () => {
                         {error && <h2> { error } </h2>}
                         {data && <h2 className='product-type'>Laptops</h2>}
                         <div className='list-container'>
-                        {data && !filter && data.map((product) => {
-                            return (
-                                <Item {...product} key={product.id} />
-                            );
-                        })}
-                        {productsData && filter && productsData.map((product) => {
-                            return (
-                                <Item {...product} key={product.id} />
-                            );
-                        })}
+                            <div className='products'>
+                                {data && !filter && data.map((product) => {
+                                    return (
+                                        <Item {...product} key={product.id} />
+                                    );
+                                })}
+                                {productsData && filter && productsData.map((product) => {
+                                    return (
+                                        <Item {...product} key={product.id} />
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
                 </div>

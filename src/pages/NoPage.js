@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import Navbar from "../Navbar";
+import NavbarClean from "../components/cleanNavbar";
 
 const NoPage = () => {
   const [timer, setTimer] = useState(3);
@@ -17,7 +17,7 @@ const NoPage = () => {
 
     return (
       <>
-      <Navbar />
+      <NavbarClean />
       <div className="no-page">
         <h1>404</h1>
         <h4>That page can not be found</h4>

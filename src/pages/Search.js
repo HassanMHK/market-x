@@ -1,11 +1,10 @@
-import Navbar from "../Navbar";
-import "../home.css";
+import NavbarClean from "../components/cleanNavbar";
 
 const Search = () => {
 
   return (
     <div className='market-container'>
-      <Navbar />
+      <NavbarClean />
     </div>
   );
 

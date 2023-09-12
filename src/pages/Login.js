@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import Navbar from "../Navbar";
-import '../App.css';
-import { ValidateEmail, CheckEmpty } from "../marketFunctions";
+import NavbarClean from "../components/cleanNavbar";
+import { ValidateEmail, CheckEmpty } from "../functions/marketFunctions";
 
 const Login = () => {
     
@@ -54,7 +53,7 @@ const Login = () => {
 
     return(
         <div className='log-reg-container'>
-            <Navbar />
+            <NavbarClean />
             <div className='login-outer-container'>
             <div className='res-msg-container'>
                 <h3 className='res-msg'>{!data ? "" : data}</h3>

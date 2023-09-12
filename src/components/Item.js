@@ -1,6 +1,4 @@
 import { Link } from 'react-router-dom';
-import { useState } from "react";
-import './home.css';
 
 const Item = (props) => {
     const {img , name, price, id, changeItem} = props;

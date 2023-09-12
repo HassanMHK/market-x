@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 
-const NavbarHome = ( {getData} ) => {
+const Navbar = ( {getData} ) => {
     const [input, setInput] = useState('');
 
     const getInput = (e) => {
@@ -14,12 +14,16 @@ const NavbarHome = ( {getData} ) => {
         }
     }
 
+    const reloadHome = () => {
+        window.location.reload();
+    }
+
     return (
         <>
             <nav className="nav-container">
                 <div className="nav-content">
                     <div className="logo-container">
-                        <Link className="market-title" to="/">MarketX</Link>
+                        <Link className="market-title" to="/" onClick={reloadHome}>MarketX</Link>
                     </div>
                     <div className="search-container">
                         <div className="search-content">
@@ -37,4 +41,4 @@ const NavbarHome = ( {getData} ) => {
     );
 };
   
-export default NavbarHome;
+export default Navbar;

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const NavbarClean = () => {
 
     return (
         <>
@@ -19,4 +19,4 @@ const Navbar = () => {
     );
 };
   
-export default Navbar;
+export default NavbarClean;
