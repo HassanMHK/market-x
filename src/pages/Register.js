@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import Navbar from "../Navbar";
-import '../App.css';
-import { ValidateEmail, CheckPassword, checkDate, checkGender } from "../marketFunctions";
+import { ValidateEmail, CheckPassword, checkDate, checkGender } from "../functions/marketFunctions";
+import NavbarClean from "../components/cleanNavbar";
 
 const Register = () => {
     
@@ -73,7 +72,7 @@ const Register = () => {
     }
     return(
         <div className='log-reg-container'>
-            <Navbar />
+            <NavbarClean />
             <div className='reg-outer-container'>
             <div className='res-msg-container'>
                 <h3 className='res-msg'>{!data ? "" : data}</h3>

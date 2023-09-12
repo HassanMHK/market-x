@@ -1,8 +1,7 @@
-import useFetch from '../useFetch';
-import Sidebar from "../Sidebar";
-import Item from "../Item";
-import NavbarHome from "../NavbarHome";
-import '../home.css';
+import useFetch from '../functions/useFetch';
+import Sidebar from "../components/Sidebar";
+import Item from "../components/Item";
+import Navbar from "../components/fullNavbar";
 import { useEffect, useState } from 'react';
 
 const Home = () => {
@@ -20,6 +19,7 @@ const Home = () => {
         }
     }, [data]);
 
+    // Filter by price
     const priceFilter = (e) => {
         if(e.target.value === "low-filter"){
             const lowPrice = data.sort((a, b) => a.price - b.price);
@@ -34,6 +34,7 @@ const Home = () => {
         }
     }
 
+    // Get Search input and filter the data
     const getSearchInput = (searchInput) => {
         const filterSearch = (product) => 
             [product.name, product.info]
@@ -46,12 +47,25 @@ const Home = () => {
         setProductsData(filteredData);
     }
 
+    // Get Brand filter
+    const getBrand = (brand) => {
+        const filterSearch = (product) => 
+            [product.name, product.info]
+                .join(' ')
+                .toLowerCase()
+                .indexOf(brand.toLowerCase()) !== -1
+        ;
+        let filteredData = data.filter(filterSearch);
+        setFilter(true);
+        setProductsData(filteredData);
+    }
+
     return(
         <div className='market-container'>
-            <NavbarHome getData={getSearchInput} />
+            <Navbar getData={getSearchInput} />
             <div className='home-container'>
                 <div className='filter-bar'>
-                    <button className='sidebar-btn' onClick={() => {
+                    <button className='sidebar-menuBtn' onClick={() => {
                         if(isSidebarActive){
                             setSidebarActive(false);
                         }else{
@@ -66,22 +80,24 @@ const Home = () => {
                     </div>
                 </div>
                 <div className='home-main'>
-                    <Sidebar checkSidebar={isSidebarActive} showSidebar={setSidebarActive}/>
+                    <Sidebar checkSidebar={isSidebarActive} showSidebar={setSidebarActive} getData={getBrand} />
                     <div className='main-section'>
                         {isPending && <h2>Loading...</h2>}
                         {error && <h2> { error } </h2>}
                         {data && <h2 className='product-type'>Laptops</h2>}
                         <div className='list-container'>
-                        {data && !filter && data.map((product) => {
-                            return (
-                                <Item {...product} key={product.id} />
-                            );
-                        })}
-                        {productsData && filter && productsData.map((product) => {
-                            return (
-                                <Item {...product} key={product.id} />
-                            );
-                        })}
+                            <div className='products'>
+                                {data && !filter && data.map((product) => {
+                                    return (
+                                        <Item {...product} key={product.id} />
+                                    );
+                                })}
+                                {productsData && filter && productsData.map((product) => {
+                                    return (
+                                        <Item {...product} key={product.id} />
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
                 </div>
