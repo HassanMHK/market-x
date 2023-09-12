@@ -27,7 +27,7 @@ if(input === undefined){
 
 function CheckEmpty(input) 
 { 
-if(input === undefined){
+if(input === undefined || input === ""){
     return false;
 }else{
     return true;

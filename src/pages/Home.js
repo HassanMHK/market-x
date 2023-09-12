@@ -10,7 +10,8 @@ const Home = () => {
     const [productsData, setProductsData] = useState([]);
     const [dataChanged, setDataChanged] = useState(true);
     const [filter, setFilter] = useState(false);
-    const [lowToHigh, setLowToHigh] = useState(true);
+    const [lowToHigh, setLowToHigh] = useState(null);
+    const [noProducts, setNoProducts] = useState(false);
 
     useEffect(() => {
         if(dataChanged){
@@ -22,12 +23,21 @@ const Home = () => {
     // Filter by price
     const priceFilter = (e) => {
         if(e.target.value === "low-filter"){
-            const lowPrice = data.sort((a, b) => a.price - b.price);
+            if(productsData){
+                var lowPrice = productsData.sort((a, b) => a.price - b.price);
+            }else{
+                var lowPrice = data.sort((a, b) => a.price - b.price);
+            }
             setProductsData(lowPrice);
             setFilter(true);
             setLowToHigh(true);
         }else if(e.target.value === "high-filter"){
-            const highPrice = data.sort((a, b) => b.price - a.price);
+            if(productsData){
+                var highPrice = productsData.sort((a, b) => b.price - a.price);
+            }else{
+                var highPrice = data.sort((a, b) => b.price - a.price);
+            }
+
             setProductsData(highPrice);
             setFilter(true);
             setLowToHigh(false);
@@ -45,6 +55,7 @@ const Home = () => {
         let filteredData = data.filter(filterSearch);
         setFilter(true);
         setProductsData(filteredData);
+        setLowToHigh(null);
     }
 
     // Get Brand filter
@@ -56,8 +67,15 @@ const Home = () => {
                 .indexOf(brand.toLowerCase()) !== -1
         ;
         let filteredData = data.filter(filterSearch);
+        console.log(filteredData.length);
+        if(Number(filteredData) === 0){
+            setNoProducts(true);
+        }else{
+            setNoProducts(false);
+        }
         setFilter(true);
         setProductsData(filteredData);
+        setLowToHigh(null);
     }
 
     return(
@@ -84,7 +102,7 @@ const Home = () => {
                     <div className='main-section'>
                         {isPending && <h2>Loading...</h2>}
                         {error && <h2> { error } </h2>}
-                        {data && <h2 className='product-type'>Laptops</h2>}
+                        {data && !noProducts && <h2 className='product-type'>Laptops</h2>}
                         <div className='list-container'>
                             <div className='products'>
                                 {data && !filter && data.map((product) => {

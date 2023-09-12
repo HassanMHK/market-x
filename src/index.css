@@ -20,7 +20,6 @@ code {
 
 label{
   display: block;
-  margin-top: 25px;
   font-size: 16px;
   font-weight: 500;
 }
@@ -29,14 +28,12 @@ input{
   display: block;
   height: 40px;
   width: 93%;
-  margin-top: 12px;
   border-radius: 5px;
   font-size: 14px;
   font-weight: 300;
 }
 
 button {
-  margin-top: 40px;
   text-align: center;
   background: rgb(97, 125, 152);
   color: #fff;
@@ -55,15 +52,12 @@ button {
   justify-content: center;
 }
 .market-container {
-  position: relative;
   background-color: rgb(255, 255, 255);
   min-height: 100vh;
   max-width: 1400px;
   font-size: 20px;
   color: white;
   display: flex;
-  justify-self: center;
-  align-self: center;
   flex-direction: column;
   align-items: center;
   justify-content: start;
@@ -71,7 +65,6 @@ button {
 
 .home-container {
   width: 100%;
-  padding-top: 50px;
   padding-bottom: 50px;
   background-color: rgb(255, 255, 255);
   min-height: 85vh;
@@ -79,12 +72,10 @@ button {
 
 /* Navbar */
 .nav-container {
-  position: absolute;
-  top: 0;
   height: 50px;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
   background: rgb(240, 240, 240);
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -135,10 +126,29 @@ button {
   margin-left: 5px;
   font-size: 12px;
 }
-
+/* second bar */
+.second-bar-smallView {
+  background-color: #292929;
+  margin: 0;
+  padding: 0;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* search */
 .search-container {
-  width: 400px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-container-smallView {
+  width: 100%;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -147,7 +157,6 @@ button {
   align-items: center;
 }
 .search-content {
-  width: 400px;
   height: 100%;
   position: relative;
   display: flex;
@@ -155,7 +164,6 @@ button {
   align-items: center;
 }
 #search {
-  width: 400px;
   margin: 0;
   padding: 0;
   border-radius: 10px;
@@ -171,6 +179,7 @@ button {
   font-size: 15px;
   position: absolute;
   right: 0;
+  margin-right: 13px;
   border-radius: 0 10px 10px 0;
 }
 
@@ -357,11 +366,10 @@ button {
 /* Item Details page*/
 .details-item-container{
   width: 100%;
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(230, 230, 230);
   display: flex;
   align-items: start;
   justify-content: start;
-  margin-top: 51px;
   padding-bottom: 50px;
 }
 .item-img-details{
@@ -449,7 +457,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 4px;
+  padding-top: 2px;
+  padding-bottom: 4px;
 }
 
 /* Login and Register */
@@ -457,13 +466,16 @@ button {
   position: relative;
   background-color: #282c34;
   min-height: 100vh;
+  max-width: 1400px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: start; */
   align-items: center;
   font-size: 25px;
   color: white;
+  margin-bottom: 50px;
 }
+
 .res-msg-container {
   /* background-color: rgb(240, 240, 240); */
   width: 100%;
@@ -489,10 +501,20 @@ button {
 
 /* login */
 .login-outer-container{
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.login-outer-container button{
+  margin-top: 30px;
+}
+.login-outer-container label{
+  margin-top: 20px;
+}
+.login-outer-container input{
+  margin-top: 10px;
 }
 .login-container {
   min-height: 520px;
@@ -549,10 +571,20 @@ button {
 
 /* Signup */
 .reg-outer-container{
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.reg-outer-container button{
+  margin-top: 30px;
+}
+.reg-outer-container label{
+  margin-top: 20px;
+}
+.reg-outer-container input{
+  margin-top: 10px;
 }
 .register-container {
   min-height: 520px;
@@ -575,7 +607,6 @@ button {
   color: #282c34;
 }
 .radio-container {
-  margin-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -589,8 +620,9 @@ button {
 .radio-text {
   margin: 0;
   padding: 0;
-  padding-right: 30px;
-  padding-left: 6px;
+  padding-right: 40px;
+  padding-left: 8px;
+  margin-top: 9px !important;
 }
 
 .login-link-container {
@@ -619,18 +651,38 @@ button {
   padding: 0;
   min-height: calc(100vh - 50px);
 }
-.no-page h1, h4{
+.no-page h1{
   margin: 0;
   padding: 0;
+  font-size: 70px;
+}
+.no-page h4{
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  margin-top: 10px;
 }
 .no-page-link{
   margin-top: 10px;
   text-decoration: none;
-  color: #1f71cf;
+  color: #83bdff;
 }
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  .search-container {
+    display: none;
+  }
+  .second-bar-smallView {
+    display: flex;
+    width: 100%;
+  }
+  .search-content {
+    width: 100%;
+  }
+  #serach-btn{
+    margin-right: 14px;
+  }
   .sidebar {
       display: none;
   }
@@ -659,12 +711,47 @@ button {
   .footer {
     font-size: 17px;
   }
-  .search-container {
-    display: none;
+  /* register and login */
+  .log-reg-container {
+    min-width: 400px;
+  }
+  .register-container {
+    width: 300px;
+  }
+  .login-container {
+    width: 300px;
+  }
+
+  .register-container h2{
+    font-size: 22px;
+  }
+  .radio {
+    height: 16px;
+    width: 16px;
+  }
+  .login-link-container p{
+    margin: 0;
+    padding: 0;
+  }
+  .login-container h2{
+    font-size: 30px;
   }
 } 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+  .search-container {
+    display: none;
+  }
+  .second-bar-smallView {
+    display: flex;
+    width: 100%;
+  }
+  .search-content {
+    width: 70%;
+  }
+  #serach-btn{
+    margin-right: 14px;
+  }
   .market-container {
     min-width: 600px;
   }
@@ -688,13 +775,25 @@ button {
   .footer {
     font-size: 19px;
   }
-  .search-container {
-    display: none;
+  .log-reg-container {
+    min-width: 600px;
   }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+  .search-container {
+    display: flex;
+  }
+  .second-bar-smallView {
+    display: none;
+  }
+  .search-content {
+    width: 400px;
+  }
+  #serach-btn{
+    margin-right: 15px;
+  }
   .market-container {
     min-width: 768px;
   }
@@ -704,8 +803,8 @@ button {
   .footer {
     font-size: 25px;
   }
-  .search-container {
-    display: block;
+  .log-reg-container {
+    min-width: 768px;
   }
 }
 
@@ -713,6 +812,12 @@ button {
 @media only screen and (min-width: 992px) {
   .market-container {
     min-width: 992px;
+  }
+  .search-content {
+    width: 600px;
+  }
+  #serach-btn{
+    margin-right: 20px;
   }
   .sidebar {
       display: block;
@@ -727,6 +832,9 @@ button {
   .right-details{
       width: 50%;
   }
+  .log-reg-container {
+    min-width: 992px;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -735,7 +843,17 @@ button {
     min-width: 1200px;
     max-width: 1400px;
   }
+  .search-content {
+    width: 700px;
+  }
+  #serach-btn{
+    margin-right: 24px;
+  }
   .products {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .log-reg-container {
+    min-width: 1200px;
+    max-width: 1400px;
   }
 }

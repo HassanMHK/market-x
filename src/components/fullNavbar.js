@@ -30,13 +30,21 @@ const Navbar = ( {getData} ) => {
                             <input type="search" id="search" autoComplete="off" spellCheck="false" placeholder="Search Products" onChange={getInput} onKeyDown={filterProducts}></input>
                             <button id="serach-btn" onClick={filterProducts}>search</button>
                         </div>
-                    </div>  
+                    </div>
                     <div className="nav-btns-container">
                         <Link className="nav-link" to="/login"><button className="nav-btn">Log in</button></Link>
                         <Link className="nav-link" to="/register"><button className="nav-btn">Register</button></Link>
                     </div>
                 </div>
             </nav>
+            <div className="second-bar-smallView">
+                <div className="search-container-smallView">
+                    <div className="search-content">
+                        <input type="search" id="search" autoComplete="off" spellCheck="false" placeholder="Search Products" onChange={getInput} onKeyDown={filterProducts}></input>
+                        <button id="serach-btn" onClick={filterProducts}>search</button>
+                    </div>
+                </div>
+            </div>
         </>
     );
 };
