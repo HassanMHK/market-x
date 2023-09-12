@@ -55,19 +55,23 @@ const Register = () => {
                 setIsGenderWrong(true);
             }
         }else{
-            fetch('/register', {
-                method: 'POST',
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(signUpData)
-            })
-            .then((res) => res.json())
-            .then((data) => {
-                setData(data.message);
-                setIsPending(false);
-                setTimeout(() => {
-                    navigate('/login');
-                }, 2000);
-            })
+            setTimeout(() => {
+                navigate('/login');
+            }, 2000);
+            
+            // fetch("/register", {
+            //     method: 'POST',
+            //     headers: {"Content-Type": "application/json"},
+            //     body: JSON.stringify(signUpData)
+            // })
+            // .then((res) => res.json())
+            // .then((data) => {
+            //     setData(data.message);
+            //     setIsPending(false);
+            //     setTimeout(() => {
+            //         navigate('/login');
+            //     }, 2000);
+            // })
         }
     }
     return(
@@ -100,7 +104,7 @@ const Register = () => {
                             value={inputs.password || ""} 
                             onChange={handleChange} 
                         />
-                        {isPassWrong && (<p className='wrong-msg'>Password should be between (8 - 15 characters) <br />which contain at least one lowercase letter, one numeric digit, <br />and one special character</p>)}
+                        {isPassWrong && (<p className='wrong-msg'>Password should be (8 - 15 characters) <br /> contains at least one lowercase letter, one numeric digit, <br />and one special character</p>)}
                     </label>
                     <label htmlFor="birthday">Birthday:</label>
                     <input type="date" id="birthday" name="birthday" required value={inputs.birthday || new Date().toISOString().slice(0, 10)} onChange={handleChange}>

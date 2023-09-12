@@ -78,7 +78,7 @@ const ItemDetails = () => {
           {(random) && data.map((product) => {
               if(product.id !== Number(id)){
                 // loop to add similaritems matching the random numbers in random useState
-                console.log(random);
+                // console.log(random);
                 for(let i=0; i<similarItemsNumber; i++){
                   if(product.id === random[i]){
                     return <Item {...product} key={product.id} changeItem={changeItem}/>;

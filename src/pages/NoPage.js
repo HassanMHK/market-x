@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import NavbarClean from "../components/cleanNavbar";
 
 const NoPage = () => {
-  const [timer, setTimer] = useState(3);
+  const [timer, setTimer] = useState(5);
   const navigate = useNavigate();
 
   const redirectTime = setTimeout(() => {
@@ -16,7 +16,7 @@ const NoPage = () => {
   }, 1000);
 
     return (
-      <>
+      <div className='log-reg-container'>
       <NavbarClean />
       <div className="no-page">
         <h1>404</h1>
@@ -24,7 +24,7 @@ const NoPage = () => {
         <Link className="no-page-link" to="/">Go to Home page...</Link>
         <h4>The page will redirect in {timer} seconds...</h4>
       </div>
-      </>
+      </div>
     );
 };
   

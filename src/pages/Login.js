@@ -8,6 +8,7 @@ const Login = () => {
     const [inputs, setInputs] = useState({});
     const [isPending, setIsPending] = useState(false);
     const [isEmailWrong, setIsEmailWrong] = useState(false);
+    const [isEmailEmpty, setIsEmailEmpty] = useState(false);
     const [isPassEmpty, setIsPassEmpty] = useState(false);
     const [data, setData] = useState(null);
     const navigate = useNavigate();
@@ -30,24 +31,29 @@ const Login = () => {
         };
         setIsEmailWrong(false);
         setIsPassEmpty(false);
-        if(!ValidateEmail(loginData.email)){
-            setIsEmailWrong(true);
+        setIsEmailEmpty(false);
+        if(!ValidateEmail(loginData.email) || !CheckEmpty(loginData.email)){
+            if(!CheckEmpty(loginData.email)){
+                setIsEmailEmpty(true);
+            }else{
+                setIsEmailWrong(true);
+            }
         }else if(!CheckEmpty(loginData.password)){
             setIsPassEmpty(true);
         }else{
-            fetch('/login', {
-                method: 'POST',
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(loginData)
-            }).then((res) => res.json())
-            .then((data) => {setData(data.message);
-                setIsPending(false);
-                if(data.condition === "ok"){
-                    navigate('/');
-            }})
-            .then(()=>{
-                
-            })
+            setTimeout(() => {
+                navigate('/');
+            }, 1000);
+            // fetch('/login', {
+            //     method: 'POST',
+            //     headers: {"Content-Type": "application/json"},
+            //     body: JSON.stringify(loginData)
+            // }).then((res) => res.json())
+            // .then((data) => {setData(data.message);
+            //     setIsPending(false);
+            //     if(data.condition === "ok"){
+            //         navigate('/');
+            // }})
         }
     }
 
@@ -70,6 +76,7 @@ const Login = () => {
                         value={inputs.email || ""} 
                         onChange={handleChange}
                         />
+                        {isEmailEmpty && <p className='wrong-msg'>You need to enter your email address!</p>}
                         {isEmailWrong && <p className='wrong-msg'>You have entered an invalid email address!</p>}
                     </label>
                     <label>Password:
