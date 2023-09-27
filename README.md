@@ -15,6 +15,12 @@ Fetching the data on the Home page with GET request from the JSON file.\
 Deleted - Fetching the Product details data on the ItemDetails page with POST request with the product id from the server.\
 Deleted - Fetching the similar products data on the ItemDetails page with GET request from the server.
 
+## Frameworks & Libraries
+
+react-redux: v8.1.2\
+redux: v4.2.1\
+@reduxjs/toolkit: v1.9.6
+
 ## React Router
 using "react-router-dom": "^5.3.4"\
 Routes: [/, /register, /login, /products/:id, *]

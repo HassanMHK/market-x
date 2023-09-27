@@ -6,11 +6,11 @@ import Register from './pages/Register'
 import ItemDetails from './pages/ItemDetails';
 import Search from './pages/Search';
 import NoPage from './pages/NoPage';
-import NavbarClean from './components/cleanNavbar';
+// import NavbarClean from './components/cleanNavbar';
 import Footer from './components/footer';
+import Cart from '../src/pages/cart';
 
 function App() {
-  
   return (
       <div className='app'>
         <Router>
@@ -19,6 +19,7 @@ function App() {
             <Route path='/login' element={<Login />}/>
             <Route path='/' element={<Home />}/>
             <Route path='/products/:id' element={<ItemDetails />}/>
+            <Route path='/cart' element={<Cart />}/>
             <Route path='/search' element={<Search />}/>
             <Route path='*' element={<NoPage />}/>
           </Routes>

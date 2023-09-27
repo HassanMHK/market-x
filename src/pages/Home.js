@@ -89,8 +89,8 @@ const Home = () => {
                         }else{
                             setSidebarActive(true);
                         }}}>
-                        {isSidebarActive && <img src='sort.png'/>}
-                        {!isSidebarActive && <img src='menu.png'/>}
+                        {isSidebarActive && <div className="menu-btn"><span className="material-symbols-outlined">menu_open</span></div>}
+                        {!isSidebarActive && <div className="menu-btn"><span className="material-symbols-outlined">menu</span></div>}
                     </button>
                     <div className='filter-btns'>
                         <button className='filter-btn' value={"low-filter"} onClick={priceFilter}>Price: Low to High</button>
