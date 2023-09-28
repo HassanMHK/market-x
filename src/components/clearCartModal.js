@@ -8,6 +8,8 @@ const ClearCartModal = () => {
     const navigate = useNavigate();
 
     return(
+    <>
+        <div className="clear-cart-modal-blur"></div>
         <div className="clear-cart-modal-container">
             <div className="clear-cart-modal">
                 <h3>Are you sure you want to clear the Cart ?</h3>
@@ -23,6 +25,7 @@ const ClearCartModal = () => {
                 </div>
             </div>
         </div>
+    </>
     );
 
 }

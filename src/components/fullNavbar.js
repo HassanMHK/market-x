@@ -38,7 +38,7 @@ const Navbar = ( {getData} ) => {
                     </div>
                     <div className="nav-btns-container">
                         <div className="shopping-cart">
-                            <span className="material-symbols-outlined" onClick={() => {navigate('/cart')}}>shopping_cart</span>
+                            <button className="cart-btn" onClick={() => {navigate('/cart')}}><span className="material-symbols-outlined">shopping_cart</span></button>
                             <div className="cart-amount"><p>{amount}</p></div>
                         </div>
                         <Link className="nav-link" to="/login"><button className="nav-btn">Log in</button></Link>

@@ -136,6 +136,17 @@ button {
   position: relative;
   padding: 7px 10px 0 0;
 }
+.cart-btn {
+  margin: 0;
+  padding: 0;
+  height: 30px;
+  width: 25px;
+  background: none;
+  color: #111111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .cart-amount {
   margin: 0;
   padding: 1px;
@@ -551,7 +562,6 @@ button {
   margin: 25px 0 30px 0;
   border: 1px solid rgb(187, 187, 187);
   border-radius: 5px;
-  box-shadow: 0 1px 1px 1px #888888;
 }
 .total-value {
   font-size: 25px;
@@ -613,6 +623,13 @@ button {
   justify-content: center;
   align-items: center;
 }
+.clear-cart-modal-blur {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #ffffff;
+  opacity: 0.8;
+}
 .clear-cart-modal {
   height: 200px;
   width: 450px;
@@ -620,7 +637,7 @@ button {
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  background-color: rgb(97, 125, 152);
+  background-color: rgb(240, 240, 240);
   padding: 20px 20px 0 20px;
   border: 1px solid grey;
   border-radius: 5px;
@@ -641,7 +658,7 @@ button {
   margin: 10px;
   border-radius: 4px;
   box-sizing: border-box;
-  background-color: #e3e3e3;
+  background-color: #fcfcfc;
   cursor: pointer;
   direction: ltr;
   display: block;
@@ -663,7 +680,7 @@ button {
 }
 .clear-modal-confirmBtn:hover {
   background-image: linear-gradient(#51A9EE, #147BCD);
-  color: #282c34;
+  color: #ffffff;
   border-color: #1482D0;
   text-decoration: none;
 }
@@ -674,7 +691,7 @@ button {
 }
 .clear-modal-cancelBtn:hover {
   background-image: linear-gradient(#dd0e0e, #bd0f0f);
-  color: #282c34;
+  color: #ffffff;
   border-color: #530000;
   text-decoration: none;
 }
@@ -683,13 +700,12 @@ button {
   display: flex;
   justify-content: start;
   align-items: start;
-  width: 520px;
+  width: 500px;
   margin: 10px;
-  border: 1px solid rgb(230, 230, 230);
+  border: 1px solid rgb(187, 187, 187);
   border-radius: 5px;
   padding: 5px;
   position: relative;
-  box-shadow: 1px 1px 4px 1px #888888;
 }
 .cart-item-left-section{
   margin-right: 10px;
@@ -760,14 +776,24 @@ button {
   font-size: 20px;
 }
 .cart-item-remove-btn {
-  width: 90px;
+  width: 25px;
   height: 25px;
   font-size: 15px;
   position: absolute;
-  bottom: 0;
-  margin-bottom: 10px;
+  top: 0;
+  right: 0;
+  margin: 5px 5px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #000000;
-  background-color: #b70f00;
+  background-color: rgb(237, 237, 237);
+}
+.cart-item-remove-btn span {
+  color: #b70f00;
+}
+.cart-item-remove-btn span:hover {
+  color: #d11908;
 }
 /* Login and Register */
 .log-reg-container {

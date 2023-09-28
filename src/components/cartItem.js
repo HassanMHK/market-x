@@ -7,7 +7,7 @@ const CartItem = (props) => {
     const {name, img, price, id, amount} = props;
     const {cartItems} = useSelector((store) => store.cart);
     const editedPrice = price.toLocaleString("en-US");
-    const nameShort = name.slice(0, 40)+"...";
+    const nameShort = name.slice(0, 30)+"...";
     const dispatch = useDispatch();
     
     useEffect(() => {
@@ -47,7 +47,9 @@ const CartItem = (props) => {
                 <button className='cart-item-remove-btn' onClick={() => {
                     dispatch(removeItem(id));
                     // dispatch(calculateTotal());
-                    }}>remove</button>
+                    }}><span class="material-symbols-outlined">
+                    delete
+                    </span></button>
             </div>
         </div>
     );
