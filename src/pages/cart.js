@@ -35,6 +35,7 @@ const dispatch = useDispatch();
                         return  <CartItem {...item} key={item.id} />
                     })}
                 </div>
+                <div className="cart-line"></div>
                 <div className='cart-price-container'>
                     <h3 className='cart-item-price'>Total:<span className="total-value">{editedTotal}</span> EGP</h3>
                 </div>

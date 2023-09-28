@@ -554,14 +554,21 @@ button {
   justify-content: center;
   align-items: center;
 }
+.cart-line {
+  height: 1px;
+  width: 85%;
+  background-color: #000;
+  margin: 30px 0 10px 0;
+}
 .cart-price-container{
-  width: 530px;
+  width: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 25px 0 30px 0;
+  padding: 5px;
   border: 1px solid rgb(187, 187, 187);
-  border-radius: 5px;
+  /* border-radius: 5px; */
 }
 .total-value {
   font-size: 25px;
@@ -701,7 +708,7 @@ button {
   justify-content: start;
   align-items: start;
   width: 500px;
-  margin: 10px;
+  margin: 10px 0 10px 0;
   border: 1px solid rgb(187, 187, 187);
   border-radius: 5px;
   padding: 5px;
@@ -1054,6 +1061,9 @@ button {
   }
   .cart-price-container{
     width: 90%;
+  }
+  .cart-line {
+    width: 100%;
   }
   /* register and login */
   .log-reg-container {
